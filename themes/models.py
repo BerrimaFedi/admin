@@ -24,3 +24,9 @@ class AdminTheme(models.Model):
 
     def __str__(self):
         return self.name
+
+
+def save(self, *args, **kwargs):
+    super().save(*args, **kwargs)
+    from .tasks import analyze_theme_accessibility
+    analyze_theme_accessibility.delay(self.id)

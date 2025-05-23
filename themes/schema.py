@@ -22,12 +22,14 @@ class ApplyThemeMutation(graphene.Mutation):
         return ApplyThemeMutation(ok=True, theme=theme)
 
 class Query(graphene.ObjectType):
-    active_theme = graphene.Field(AdminThemeType)
+    all_themes = graphene.List(AdminThemeType)
 
-    def resolve_active_theme(self, info):
-        return AdminTheme.objects.filter(is_active=True).first()
+    def resolve_all_themes(self, info):
+        return AdminTheme.objects.all()
+
 
 class Mutation(graphene.ObjectType):
     apply_theme = ApplyThemeMutation.Field()
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
+
