@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+{% load admin_theme_tags %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {% with theme=get_active_admin_theme %}
+        {% if theme %}
+            {% if theme.css_url %}
+                <link rel="stylesheet" href="{{ theme.css_url }}">
+            {% endif %}
+            {% if theme.js_url %}
+                <script src="{{ theme.js_url }}"></script>
+            {% endif %}
+
+            <style>
+                :root {
+                    {% if theme.primary_color %}
+                    --primary-color: {{ theme.primary_color }};
+                    {% endif %}
+                    {% if theme.secondary_color %}
+                    --secondary-color: {{ theme.secondary_color }};
+                    {% endif %}
+                    {% if theme.scss_variables %}
+                        {{ theme.scss_variables|safe }}
+                    {% endif %}
+                }
+
+            </style>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,68 @@
+/* static/themes/light.css */
+
+/* Apply basic colors from variables */
+body {
+    background-color: var(--background-color, #f8f8f8); /* Fallback to default light gray */
+    color: var(--text-color, #333); /* Fallback to default dark gray */
+}
+
+/* Header styling */
+#header {
+    background-color: var(--header-background, #417690); /* Fallback to default Django blue */
+    color: var(--header-text-color, #fff); /* Assuming you have a header text color variable */
+    /* Add other header styles as needed */
+}
+
+#header a {
+     color: var(--header-link-color, #fff); /* Assuming a header link color variable */
+}
+
+
+/* Sidebar styling */
+#nav-sidebar {
+    background-color: var(--sidebar-background, #f8f8f8); /* Fallback to default light gray */
+    color: var(--sidebar-text-color, #333); /* Assuming a sidebar text color variable */
+    /* Add other sidebar styles as needed */
+}
+
+#nav-sidebar a {
+    color: var(--sidebar-link-color, #333); /* Assuming a sidebar link color variable */
+}
+
+/* Link colors */
+a {
+    color: var(--link-color, #417690); /* Fallback to default Django blue */
+}
+
+a:hover {
+    color: var(--link-hover-color, #003366); /* Assuming a link hover color variable */
+}
+
+/* Button styling (adjust selectors based on admin HTML) */
+input[type="submit"], input[type="button"], .button, .default {
+    background-color: var(--button-background, #417690); /* Assuming button background variable */
+    color: var(--button-text-color, #fff); /* Assuming button text color variable */
+    /* Add other button styles like border, padding, etc. */
+}
+
+/* Add more rules for specific elements like form inputs, tables, messages, etc. */
+/* Example: Styling form labels */
+/* label {
+    color: var(--label-color, #333);
+} */
+
+/* Example: Styling table headers */
+/* th {
+    background-color: var(--table-header-background, #e0e0e0);
+    color: var(--table-header-text-color, #333);
+} */
+
+/* Add styles for messages (success, error, warning) */
+/* .messagelist li.success {
+    background-color: var(--success-message-background, #dff0d8);
+    color: var(--success-message-text-color, #3c763d);
+} */
+
+/* You will need to define variables like --header-text-color, --sidebar-text-color,
+   --button-background, etc., in your AdminTheme's scss_variables field
+   for these rules to have an effect. */
